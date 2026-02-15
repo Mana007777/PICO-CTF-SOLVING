@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# =====================================
-# SSTI Exploit Script (Jinja2)
-# Usage: ./ssti_flag.sh <URL>
-# Example: ./ssti_flag.sh http://example.com
-# =====================================
 
 if [ -z "$1" ]; then
     echo "Usage: $0 <URL>"

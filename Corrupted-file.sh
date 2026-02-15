@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# ===============================
-# JPEG Header Repair Script
-# ===============================
 
 FILE="$1"
 
@@ -33,7 +30,6 @@ else
     echo "[!] Corrupted header detected."
     echo "[+] Repairing header..."
 
-    # overwrite first 2 bytes with FF D8
     printf '\xFF\xD8' | dd of="$FILE" bs=1 count=2 conv=notrunc 2>/dev/null
 
     echo "[✓] Header repaired."

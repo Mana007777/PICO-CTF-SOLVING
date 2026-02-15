@@ -13,7 +13,6 @@ fi
 
 echo "[+] Decoding Base64 data..."
 
-# Decode base64 safely (ignores invalid chars)
 base64 -d "$INPUT_FILE" 2>/dev/null > "$DECODED_FILE"
 
 if [ ! -s "$DECODED_FILE" ]; then
@@ -26,7 +25,6 @@ FILE_TYPE=$(file "$DECODED_FILE")
 
 echo "[+] File type: $FILE_TYPE"
 
-# Determine extension
 if echo "$FILE_TYPE" | grep -qi png; then
     IMAGE_FILE="output.png"
 elif echo "$FILE_TYPE" | grep -qi jpeg; then
