@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Usage: ./extract_flag.sh logfile.txt
 
 INPUT_FILE="$1"
 DECODED_FILE="decoded_output"
